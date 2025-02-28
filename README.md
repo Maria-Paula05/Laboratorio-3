@@ -2,18 +2,20 @@
 
 # 1.Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
-El primero:la persona estaba ubicada a 60 cm del micrófono y a los otros micrófonos estaba a una distancia de 
-El segundo:
-El tercero:
-a seis metros de distancia cada uno y las personas se ubicaron a un metro de los micrófonos como en el siguiente bosquejo.
+Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en el siguiente bosquejo:
+![image](https://github.com/user-attachments/assets/df980857-d875-415e-ad2c-4b8ce2195409)
+# 2.Captura de la señal.
+Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
+Persona 1:
+Persona 2:
+Persona 3:"Mi comida favorita es la hamburguesa sin verduras"
 
-
-
-# 2.Analisis temporal y espectral de las señales capturadas por los micrófonos.
+# 3.Analisis temporal y espectral de las señales capturadas por los micrófonos.
 
 Caracteristicas principales de cada fuente sonora:
 
-Tranformada de Fourier rápida
+
+Tranformada de Fourier rápida:
 
 # 3.Métodos de separación de fuentes
  # ICA
