@@ -2,10 +2,10 @@
 # Librerías utilizadas a lo largo del laboratorio 
 
 ```phyton
- import librosa
+import librosa
 import matplotlib.pyplot as plt
 import numpy as np
-````
+```
 
 # 1.Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
@@ -143,7 +143,7 @@ y2_shifted = y2 + offset
 time = np.arange(len(y1)) / sr1
 
 print(f"SNR: {snr_db:.2f} dB")
-````
+```
 ![image](https://github.com/user-attachments/assets/6ef3002a-2e6d-4c74-88ee-14cc33946a79)
 
 SNR:37.43
@@ -199,7 +199,7 @@ y2_shifted = y2 + offset
 time = np.arange(len(y1)) / sr1
 
 print(f"SNR: {snr_db:.2f} dB")
-````
+```
 ![image](https://github.com/user-attachments/assets/cfc70543-ca08-4083-b598-1d8097ceba38)
 
 SNR:26.89
@@ -266,7 +266,7 @@ for i, y in enumerate(signals):
 
 plt.tight_layout()
 plt.show()
-`````
+```
 ![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
 
 
