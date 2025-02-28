@@ -3,12 +3,25 @@
 # 1.Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
 Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en el siguiente bosquejo:
+
+
 ![image](https://github.com/user-attachments/assets/df980857-d875-415e-ad2c-4b8ce2195409)
 # 2.Captura de la señal.
-Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
-Persona 1:
-Persona 2:
-Persona 3:"Mi comida favorita es la hamburguesa sin verduras"
+
+1.Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
+
+Persona 1(Juan Pablo:"Las medusas existen desde hace más de 600 millones de años lo que las hace más antiguas que los dinosaurios los tiburones e incluso los árboles."
+
+Persona 2(Paula Vanessa):
+
+Persona 3(María Paula):"Mi comida favorita es la hamburguesa sin verduras."
+
+Estas frases fueron grabadas al tiempo y se almacenaron en los dispositivos en archivos .wav.
+
+2.Luego se capturaron las señales del ruido de fondo con los tres micrófonos.
+
+
+
 
 # 3.Analisis temporal y espectral de las señales capturadas por los micrófonos.
 
