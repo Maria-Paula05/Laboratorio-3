@@ -202,7 +202,7 @@ print(f"SNR: {snr_db:.2f} dB")
 
 SNR:26.89
 
-# 3.Analisis temporal y espectral de las señales capturadas por los micrófonos.
+# 3. Analisis temporal y espectral de las señales capturadas por los micrófonos.
 
 Caracteristicas principales de cada fuente sonora:
 
@@ -267,10 +267,10 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
 
 
-# 3.Métodos de separación de fuentes
+# 4. Métodos de separación de fuentes
  # ICA
  
-# 4.SNR
+# SNR
 
 Es una medida que compara el nivel de una señal deseada con el nivel del ruido de fondo en un sistema de audio o comunicaciones. Se expresa generalmente en decibeles (dB)
                                                                                                SNR=10log10(Pseñal/Pruido) 
@@ -281,7 +281,7 @@ Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte 
 
 
 
-# 5 Preguntas a resolver
+# 5. Preguntas a resolver
 -¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la efectividad de la separación de señales?
 
 La posición relativa de los micrófonos y las fuentes sonoras afecta significativamente la efectividad en la separación de señales debido a la distancia, la direccionalidad y el rechazo de interferencias.
