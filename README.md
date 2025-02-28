@@ -27,7 +27,7 @@ Persona 2(María Paula):"Mi comida favorita es la hamburguesa sin verduras."
 
 🎧 [Escuchar el audio](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO2.wav)
 
-Persona 1(Juan Pablo:"Las medusas existen desde hace más de 600 millones de años lo que las hace más antiguas que los dinosaurios los tiburones e incluso los árboles."
+Persona 1(Juan Pablo):"Las medusas existen desde hace más de 600 millones de años lo que las hace más antiguas que los dinosaurios los tiburones e incluso los árboles."
 
 🎧 [Escuchar el audio](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO3.wav)
 
