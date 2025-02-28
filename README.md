@@ -1,4 +1,11 @@
 # Laboratorio-3
+# Librerías utilizadas a lo largo del laboratorio 
+
+````phyton
+ import librosa
+import matplotlib.pyplot as plt
+import numpy as np
+````
 
 # 1.Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
@@ -13,6 +20,7 @@ Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en 
 
 
 Persona 1(Paula Vanessa):
+
 🎧 [Escuchar el audio](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO1.wav)
 
 Persona 2(María Paula):"Mi comida favorita es la hamburguesa sin verduras."
@@ -39,12 +47,228 @@ Ruido de fondo 3:
 
 🎧 [Escuchar el audio](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/FONDO3.wav)
 
+# Señales audio-fondo y cálculo de SNR (1) 
+```python
+audio_path1 = 'AUDIO1.wav'
+audio_path2 = 'FONDO1.wav'
+y1, sr1 = librosa.load(audio_path1)
+y2, sr2 = librosa.load(audio_path2)
+
+time1 = np.linspace(0, len(y1) / sr1, num=len(y1))
+time2 = np.linspace(0, len(y2) / sr2, num=len(y2))
+
+plt.figure(figsize=(12, 6))
+
+# Primera señal (AUDIO 1)
+plt.subplot(2, 1, 1)
+plt.plot(time1, y1, label="Forma de onda AUDIO 1", alpha=0.7)
+plt.title('Forma de onda de AUDIO 1')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+# Segunda señal (RUIDO DE FONDO 1)
+plt.subplot(2, 1, 2)
+plt.plot(time2, y2, label="Forma de onda RUIDO DE FONDO 1", color='orange', alpha=0.7)
+plt.title('Forma de onda de RUIDO DE FONDO 1')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+min_len = min(len(y1), len(y2))
+y1, y2 = y1[:min_len], y2[:min_len]
+
+AUDIO1 = np.mean(y1 ** 2)
+FONDO1 = np.mean(y2 ** 2)
+snr_db = 10 * np.log10(AUDIO1 / FONDO1)
+
+print(f"SNR: {snr_db:.2f} dB")
+````
+![image](https://github.com/user-attachments/assets/2c4374f9-2675-46d1-b46e-4eddc2325b2e)
+
+SNR:38.29
+
+# Señales audio-fondo y cálculo de SNR (2) 
+
+# Cargar los archivos de audio
+
+````phyton
+# Cargar los archivos de audio
+audio_path1 = 'AUDIO2.wav'
+audio_path2 = 'FONDO2.wav'
+y1, sr1 = librosa.load(audio_path1)
+y2, sr2 = librosa.load(audio_path2)
+
+# Crear los ejes de tiempo
+time1 = np.linspace(0, len(y1) / sr1, num=len(y1))
+time2 = np.linspace(0, len(y2) / sr2, num=len(y2))
+
+# Graficar ambas señales
+plt.figure(figsize=(12, 6))
+
+# Primera señal (AUDIO 1)
+plt.subplot(2, 1, 1)
+plt.plot(time1, y1, label="Forma de onda AUDIO 2", alpha=0.7)
+plt.title('Forma de onda de AUDIO 2')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+# Segunda señal (RUIDO DE FONDO 1)
+plt.subplot(2, 1, 2)
+plt.plot(time2, y2, label="Forma de onda RUIDO DE FONDO 2", color='red', alpha=0.7)
+plt.title('Forma de onda de RUIDO DE FONDO 2')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+min_len = min(len(y1), len(y2))
+y1, y2 = y1[:min_len], y2[:min_len]
+
+# Calcular la SNR en dB (Señal: y1, Ruido: y2)
+AUDIO2 = np.mean(y1 ** 2)
+FONDO2 = np.mean(y2 ** 2)
+snr_db = 10 * np.log10(AUDIO2 / FONDO2)
+
+# Separación vertical
+offset = 2
+y2_shifted = y2 + offset
+
+time = np.arange(len(y1)) / sr1
+
+print(f"SNR: {snr_db:.2f} dB")
+````
+![image](https://github.com/user-attachments/assets/6ef3002a-2e6d-4c74-88ee-14cc33946a79)
+
+SNR:37.43
+
+# Señales audio-fondo y cálculo de SNR (2) 
+
+
+````phyton
+# Cargar los archivos de audio
+audio_path1 = 'AUDIO3.wav'
+audio_path2 = 'FONDO3.wav'
+y1, sr1 = librosa.load(audio_path1)
+y2, sr2 = librosa.load(audio_path2)
+
+# Crear los ejes de tiempo
+time1 = np.linspace(0, len(y1) / sr1, num=len(y1))
+time2 = np.linspace(0, len(y2) / sr2, num=len(y2))
+
+# Graficar ambas señales
+plt.figure(figsize=(12, 6))
+
+# Primera señal (AUDIO 1)
+plt.subplot(2, 1, 1)
+plt.plot(time1, y1, label="Forma de onda AUDIO 3", alpha=0.7)
+plt.title('Forma de onda de AUDIO 3')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+# Segunda señal (RUIDO DE FONDO 1)
+plt.subplot(2, 1, 2)
+plt.plot(time2, y2, label="Forma de onda RUIDO DE FONDO 3", color='green', alpha=0.7)
+plt.title('Forma de onda de RUIDO DE FONDO 1')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud (normalizada)')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+min_len = min(len(y1), len(y2))
+y1, y2 = y1[:min_len], y2[:min_len]
+
+# Calcular la SNR en dB (Señal: y1, Ruido: y2)
+AUDIO3 = np.mean(y1 ** 2)
+FONDO3 = np.mean(y2 ** 2)
+snr_db = 10 * np.log10(AUDIO3 / FONDO3)
+
+# Separación vertical
+offset = 2
+y2_shifted = y2 + offset
+
+time = np.arange(len(y1)) / sr1
+
+print(f"SNR: {snr_db:.2f} dB")
+````
+![image](https://github.com/user-attachments/assets/cfc70543-ca08-4083-b598-1d8097ceba38)
+
+SNR:26.89
+
 # 3.Analisis temporal y espectral de las señales capturadas por los micrófonos.
 
 Caracteristicas principales de cada fuente sonora:
 
 
-Tranformada de Fourier rápida:
+
+Análisis y gráfica de un audio:
+
+El análisis y graficación de audio permiten examinar una señal en el dominio del tiempo y la frecuencia para comprender sus características.
+
+-Un archivo de audio se convierte en una serie de valores numéricos que representan su variación en el tiempo.
+
+-Análisis temporal: La forma de onda muestra cómo cambia la amplitud del sonido, permitiendo identificar eventos como golpes o pausas.
+
+-Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
+
+-Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
+
+````phyton
+# Cargar señales de los 3 micrófonos
+audio_paths = ['AUDIO1.wav', 'AUDIO2.wav', 'AUDIO3.wav']
+signals = []
+sampling_rates = []
+
+for path in audio_paths:
+    y, sr = librosa.load(path, sr=None)  # Mantener frecuencia original
+    signals.append(y)
+    sampling_rates.append(sr)
+
+# Análisis Temporal: Graficar las formas de onda
+plt.figure(figsize=(12, 8))
+for i, y in enumerate(signals):
+    plt.subplot(3, 1, i+1)
+    librosa.display.waveshow(y, sr=sampling_rates[i], alpha=0.7)
+    plt.title(f'Forma de onda - Micrófono {i+1}')
+    plt.xlabel('Tiempo (s)')
+    plt.ylabel('Amplitud (dB)')
+    plt.xticks(np.linspace(0, len(y) / sampling_rates[i], num=5))  # Etiquetas en el eje x
+    plt.yticks(np.linspace(np.min(y), np.max(y), num=5))  # Etiquetas en el eje y
+
+plt.tight_layout()
+plt.show()
+
+# Análisis Espectral: Aplicar FFT y visualizar espectros de frecuencia
+plt.figure(figsize=(12, 8))
+for i, y in enumerate(signals):
+    N = len(y)  # Número de muestras
+    T = 1.0 / sampling_rates[i]  # Período de muestreo
+    freqs = np.fft.rfftfreq(N, T)  # Frecuencias
+    fft_vals = 20 * np.log10(np.abs(np.fft.rfft(y)) + 1e-6)  # Convertir amplitud a dB  # Magnitud de la FFT
+
+    plt.subplot(3, 1, i+1)
+    plt.plot(freqs, fft_vals, label=f'Espectro - Micrófono {i+1}')
+    plt.xlim(0, 5000)  # Limitar a 5 kHz (frecuencias de voz humana)
+    plt.xlabel('Frecuencia (Hz)')
+    plt.ylabel('Amplitud (dB)')
+    plt.xticks(np.linspace(0, 5000, num=6))  # Etiquetas en el eje x
+    plt.yticks(np.linspace(np.min(fft_vals), np.max(fft_vals), num=5))  # Etiquetas en el eje y
+    plt.legend()
+
+plt.tight_layout()
+plt.show()
+`````
+![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
+
 
 # 3.Métodos de separación de fuentes
  # ICA
