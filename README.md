@@ -12,12 +12,16 @@ Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en 
 1.Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
 
 Persona 1(Juan Pablo:"Las medusas existen desde hace más de 600 millones de años lo que las hace más antiguas que los dinosaurios los tiburones e incluso los árboles."
-🎧 [Escuchar el audio](https://raw.githubusercontent.com/USUARIO/REPO/main/AUDIO1.wav)
+<audio controls>
+  <source src="https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO1.wav">
+</audio>
+
 Persona 2(Paula Vanessa):
-🎧 [Escuchar el audio](https://raw.githubusercontent.com/USUARIO/REPO/main/AUDIO2.wav)
+
 
 Persona 3(María Paula):"Mi comida favorita es la hamburguesa sin verduras."
-🎧 [Escuchar el audio](https://raw.githubusercontent.com/USUARIO/REPO/main/AUDIO3.wav)
+
+)
 
 Estas frases fueron grabadas al tiempo y se almacenaron en los dispositivos en archivos .wav.
 
