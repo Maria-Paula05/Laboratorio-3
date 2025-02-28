@@ -96,7 +96,6 @@ SNR:38.29
 # Cargar los archivos de audio
 
 ```phyton
-# Cargar los archivos de audio
 audio_path1 = 'AUDIO2.wav'
 audio_path2 = 'FONDO2.wav'
 y1, sr1 = librosa.load(audio_path1)
@@ -152,7 +151,6 @@ SNR:37.43
 
 
 ```phyton
-# Cargar los archivos de audio
 audio_path1 = 'AUDIO3.wav'
 audio_path2 = 'FONDO3.wav'
 y1, sr1 = librosa.load(audio_path1)
@@ -223,7 +221,6 @@ El análisis y graficación de audio permiten examinar una señal en el dominio 
 -Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
 
 ```phyton
-# Cargar señales de los 3 micrófonos
 audio_paths = ['AUDIO1.wav', 'AUDIO2.wav', 'AUDIO3.wav']
 signals = []
 sampling_rates = []
