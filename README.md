@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-# 1.Configuración del sistema
+# 1. Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
 Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en el siguiente bosquejo:
 
 
 
 ![image](https://github.com/user-attachments/assets/df980857-d875-415e-ad2c-4b8ce2195409)
-# 2.Captura de la señal.
+# 2. Captura de la señal.
 
 1.Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
 
