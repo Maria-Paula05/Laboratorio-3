@@ -1,7 +1,7 @@
 # Laboratorio-3
 # Librerías utilizadas a lo largo del laboratorio 
 
-````phyton
+```phyton
  import librosa
 import matplotlib.pyplot as plt
 import numpy as np
@@ -95,7 +95,7 @@ SNR:38.29
 
 # Cargar los archivos de audio
 
-````phyton
+```phyton
 # Cargar los archivos de audio
 audio_path1 = 'AUDIO2.wav'
 audio_path2 = 'FONDO2.wav'
@@ -151,7 +151,7 @@ SNR:37.43
 # Señales audio-fondo y cálculo de SNR (2) 
 
 
-````phyton
+```phyton
 # Cargar los archivos de audio
 audio_path1 = 'AUDIO3.wav'
 audio_path2 = 'FONDO3.wav'
@@ -222,7 +222,7 @@ El análisis y graficación de audio permiten examinar una señal en el dominio 
 
 -Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
 
-````phyton
+```phyton
 # Cargar señales de los 3 micrófonos
 audio_paths = ['AUDIO1.wav', 'AUDIO2.wav', 'AUDIO3.wav']
 signals = []
