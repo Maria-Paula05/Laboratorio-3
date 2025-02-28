@@ -216,10 +216,6 @@ El análisis y graficación de audio permiten examinar una señal en el dominio 
 
 -Análisis temporal: La forma de onda muestra cómo cambia la amplitud del sonido, permitiendo identificar eventos como golpes o pausas.
 
--Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
-
--Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
-
 ```python
 audio_paths = ['AUDIO1.wav', 'AUDIO2.wav', 'AUDIO3.wav']
 signals = []
@@ -243,7 +239,14 @@ for i, y in enumerate(signals):
 
 plt.tight_layout()
 plt.show()
+```
+![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
 
+-Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
+
+-Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
+
+```python
 # Análisis Espectral: Aplicar FFT y visualizar espectros de frecuencia
 plt.figure(figsize=(12, 8))
 for i, y in enumerate(signals):
@@ -265,7 +268,6 @@ plt.tight_layout()
 plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
-
 
 # 4. Métodos de separación de fuentes
  # ICA
