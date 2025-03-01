@@ -460,7 +460,7 @@ plt.show()
 Se guardó el audio procesado con Beamforming en 'VOZ3BF.wav'.
 ![image](https://github.com/user-attachments/assets/40fdbdda-9ff0-4950-a1af-24f7bfd503b9)
 
-🎧 [VOZ3BF](VOZ3BF.wav))
+🎧 [VOZ3BF](VOZ3BF.wav)
 
 # SNR
 
