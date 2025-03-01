@@ -383,6 +383,41 @@ Por ultimo se compara la señal aislada con la señal original mediante métrica
 
 ```python
 
+folder_path = "C:\\Users\\paula\\Desktop\\COCTEL"
+
+# 🎤 Cargar audios de los micrófonos
+fs, mic1 = wav.read(os.path.join(folder_path, "AUDIO1.wav"))
+_, mic2 = wav.read(os.path.join(folder_path, "AUDIO2.wav"))
+_, mic3 = wav.read(os.path.join(folder_path, "AUDIO3.wav"))
+
+signals = np.vstack([mic1, mic2, mic3])
+
+# Posiciones actualizadas de los micrófonos según la imagen
+mic_positions = np.array([
+    [-3, 6],  # Mic 1 (izquierda)
+    [3, 6],   # Mic 2 (derecha)
+    [0, -1],  # Mic 3 (abajo en el centro)
+]).T  # Transpuesta para el formato correcto
+
+# Dirección de la persona central (asumimos que está en (0,0))
+angle = np.pi / 2  # 90°
+
+# 🛠 Crear beamformer Delay-and-Sum
+R = mic_positions  # Matriz de posiciones
+beamformer = pra.beamforming.DelayAndSum(R, fs, nfft=256)  # Intentar con DelayAndSum
+
+# Apuntar el beamformer a la dirección deseada
+beamformer.steer(azimuth=angle, colatitude=np.pi/2)  
+
+# Aplicar beamforming
+output_signal = beamformer.process(signals)
+
+# Guardar el audio resultante
+output_path = os.path.join(folder_path, "voz_central_beamforming.wav")
+wav.write(output_path, fs, output_signal.astype(np.int16))
+
+print(f"Audio procesado guardado en: {output_path}")
+
 ```
 
 # SNR
