@@ -457,9 +457,9 @@ plt.tight_layout()
 plt.show()
 
 ```
-![image](https://github.com/user-attachments/assets/40fdbdda-9ff0-4950-a1af-24f7bfd503b9)
 Se guardó el audio procesado con Beamforming en 'VOZ3BF.wav'.
-🎧 [AUDIO 3](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO3.wav)
+![image](https://github.com/user-attachments/assets/40fdbdda-9ff0-4950-a1af-24f7bfd503b9)
+
 🎧 [VOZ3BF](VOZ3BF.wav))
 
 # SNR
