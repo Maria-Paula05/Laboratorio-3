@@ -16,8 +16,7 @@ Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en 
 ![image](https://github.com/user-attachments/assets/df980857-d875-415e-ad2c-4b8ce2195409)
 # 2. Captura de la señal.
 
-1.Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
-
+1. Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
 
 Persona 1(Paula Vanessa):
 
@@ -33,7 +32,7 @@ Persona 1(Juan Pablo):"Las medusas existen desde hace más de 600 millones de a
 
 Estas frases fueron grabadas al tiempo y se almacenaron en los dispositivos en archivos .wav.
 
-2.Luego se capturaron las señales del ruido de fondo con los tres micrófonos.
+2. Luego se capturaron las señales del ruido de fondo con los tres micrófonos.
 
 Ruido de fondo 1:
 
@@ -93,8 +92,6 @@ SNR:38.29
 
 # Señales audio-fondo y cálculo de SNR (2) 
 
-# Cargar los archivos de audio
-
 ```python
 audio_path1 = 'AUDIO2.wav'
 audio_path2 = 'FONDO2.wav'
@@ -147,7 +144,7 @@ print(f"SNR: {snr_db:.2f} dB")
 
 SNR:37.43
 
-# Señales audio-fondo y cálculo de SNR (2) 
+# Señales audio-fondo y cálculo de SNR (3) 
 
 
 ```python
@@ -204,17 +201,11 @@ SNR:26.89
 
 # 3. Analisis temporal y espectral de las señales capturadas por los micrófonos.
 
-Caracteristicas principales de cada fuente sonora:
+**Caracteristicas principales de cada fuente sonora:**
 
+Análisis y gráfica de un audio: El análisis y graficación de audio permiten examinar una señal en el dominio del tiempo y la frecuencia para comprender sus características.
 
-
-Análisis y gráfica de un audio:
-
-El análisis y graficación de audio permiten examinar una señal en el dominio del tiempo y la frecuencia para comprender sus características.
-
--Un archivo de audio se convierte en una serie de valores numéricos que representan su variación en el tiempo.
-
--Análisis temporal: La forma de onda muestra cómo cambia la amplitud del sonido, permitiendo identificar eventos como golpes o pausas.
+- Análisis temporal: La forma de onda muestra cómo cambia la amplitud del sonido, permitiendo identificar eventos como golpes o pausas.
 
 ```python
 audio_paths = ['AUDIO1.wav', 'AUDIO2.wav', 'AUDIO3.wav']
@@ -242,9 +233,9 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
 
--Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
+- Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
 
--Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
+    Permite identificar sonidos graves o agudos, analizar ruido y comparar señales de distintos micrófonos.
 
 ```python
 # Análisis Espectral: Aplicar FFT y visualizar espectros de frecuencia
@@ -267,58 +258,76 @@ for i, y in enumerate(signals):
 plt.tight_layout()
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
+![image](https://raw.githubusercontent.com/Maria-Paula05/Laboratorio-3/refs/heads/main/FFT.png)
 
 # 4. Métodos de separación de fuentes
- # ICA
- 
+# ICA
+*"El Análisis de Componentes Independientes (ICA) es una técnica estadística que permite separar señales mezcladas asumiendo que sus fuentes son estadísticamente independientes. Se utiliza en el procesamiento de audio para aislar sonidos individuales a partir de una mezcla." (Learn Statistics Easily, 2024).*
+
+El proceso para separar fuentes comienza con la carga de archivos de audio, asegurando que todas las señales mezcladas tengan la misma frecuencia de muestreo y longitud. Luego, se aplica el Análisis de Componentes Independientes (ICA) para separar las fuentes sonoras, asumiendo que son estadísticamente independientes.
+Para mejorar la calidad del audio extraído, se utiliza un filtro pasa banda (100 Hz - 4000 Hz), eliminando frecuencias no deseadas. Luego, la señal se normaliza y convierte al formato int16, optimizándola para su almacenamiento. Finalmente, el archivo se guarda en formato .wav.
+
+```python
+
+```
+**Comparación señal aislada / la señal original**
+Por ultimo se compara la señal aislada con la señal original mediante métricas de calidad, para cuantificar el desempeño de la separación y evaluar la efectividad del proceso.
+
 # SNR
 
 Es una medida que compara el nivel de una señal deseada con el nivel del ruido de fondo en un sistema de audio o comunicaciones. Se expresa generalmente en decibeles (dB)
-                                                                                               SNR=10log10(Pseñal/Pruido) 
-
+                                                                                               SNR=10log10(Pseñal/Pruido)
+                                                                                               
 Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte que el ruido, lo que resulta en una mejor calidad de audio, mientras que un SNR bajo (menor cantidad de dB) indica que el ruido es comparable o incluso mayor que la señal, lo que puede dificultar la interpretación de la información transmitida.
 
-
-
-
-
 # 5. Preguntas a resolver
--¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la efectividad de la separación de señales?
+**¿Cómo afecta la posición relativa de los micrófonos y las fuentes sonoras en la efectividad de la separación de señales?**
 
-La posición relativa de los micrófonos y las fuentes sonoras afecta significativamente la efectividad en la separación de señales debido a la distancia, la direccionalidad y el rechazo de interferencias.
+- Posición relativa de los micrófonos: la posición de los micrófonos y las fuentes sonoras afecta significativamente la efectividad en la separación de señales debido a la distancia, la direccionalidad y el rechazo de interferencias.
 
-Distancia y ángulo: Un mayor espaciamiento entre micrófonos mejora la capacidad de separar señales basadas en la diferencia de tiempo de llegada y la fase.
+- Distancia y ángulo: Un mayor espaciamiento entre micrófonos mejora la capacidad de separar señales basadas en la diferencia de tiempo de llegada y la fase.
 
-Rechazo de ruido: Un correcto posicionamiento minimiza interferencias y maximiza la captación de la señal deseada.
+- Rechazo de ruido: Un correcto posicionamiento minimiza interferencias y maximiza la captación de la señal deseada.
 
-Efecto de diafonía: Si las fuentes están muy cercanas o alineadas, puede ser más difícil separar sus señales debido a la superposición de frecuencias.
+- Efecto de diafonía: Si las fuentes están muy cercanas o alineadas, puede ser más difícil separar sus señales debido a la superposición de frecuencias.
 
-Ambiente acústico: La reverberación y los reflejos pueden alterar la captación, por lo que la ubicación de los micrófonos debe optimizarse para minimizar estos efectos.
+- Ambiente acústico: La reverberación y los reflejos pueden alterar la captación, por lo que la ubicación de los micrófonos debe optimizarse para minimizar estos efectos.
 
--¿Qué mejoras implementaría en la metodología para obtener mejores resultados?
+**¿Qué mejoras implementaría en la metodología para obtener mejores resultados?**
 
-Optimización de la disposición espacial
+- Optimización de la disposición espacial
 
-Aumentar la separación entre micrófonos para mejorar la diferenciación de las señales según la diferencia de tiempo de llegada.
-Ubicar los micrófonos estratégicamente para minimizar interferencias y reflexiones no deseadas.
+    Aumentar la separación entre micrófonos para mejorar la diferenciación de las señales según la diferencia de tiempo de llegada.
+    Ubicar los micrófonos estratégicamente para minimizar interferencias y reflexiones no deseadas.
 
-Reducción de ruido y diafonía
+- Reducción de ruido y diafonía
 
-Utilizar micrófonos direccionales o configuraciones de matrices para mejorar la captación de la señal deseada y reducir interferencias.
-Implementar filtros de acondicionamiento de señales para minimizar el ruido ambiental.
+    Utilizar micrófonos direccionales o configuraciones de matrices para mejorar la captación de la señal deseada y reducir interferencias.
+    Implementar filtros de acondicionamiento de señales para minimizar el ruido ambiental.
 
-Calibración y caracterización precisa
+- Calibración y caracterización precisa
 
-Realizar pruebas previas de caracterización de los micrófonos para identificar su respuesta en diferentes condiciones.
-Aplicar técnicas de normalización y ajuste de ganancia para mantener niveles de señal óptimos.
+    Realizar pruebas previas de caracterización de los micrófonos para identificar su respuesta en diferentes condiciones.
+    Aplicar técnicas de normalización y ajuste de ganancia para mantener niveles de señal óptimos.
 
-Mejora en el procesamiento de señales
+- Mejora en el procesamiento de señales
 
-Aplicar técnicas avanzadas de separación de fuentes como algoritmos de análisis de componentes independientes (ICA) o filtrado adaptativo.
-Implementar modelos de machine learning o técnicas de deep learning para mejorar la separación de señales en entornos ruidosos.
+    Aplicar técnicas avanzadas de separación de fuentes como algoritmos de análisis de componentes independientes (ICA) o filtrado adaptativo.
+    Implementar modelos de machine learning o técnicas de deep learning para mejorar la separación de señales en entornos ruidosos.
 
-Simulación y pruebas experimentales
+- Simulación y pruebas experimentales
 
-Realizar simulaciones previas mediante software como MATLAB o Proteus para ajustar los parámetros del sistema antes de la implementación real.
-Efectuar mediciones en diferentes condiciones para evaluar la robustez del método y ajustar los parámetros necesarios.
+    Realizar simulaciones previas mediante software como MATLAB o Proteus para ajustar los parámetros del sistema antes de la implementación real.
+    Efectuar mediciones en diferentes condiciones para evaluar la robustez del método y ajustar los parámetros necesarios.
+  
+# Referencias
+
+-   Transformación rápida de Fourier FFT (n.d.).
+https://www.nti-audio.com/es/servicio/conocimientos/transformacion-rapida-de-fourier-fft
+
+-   Rivera, E., Moreno, R., Pérez, H., & Nakano, M. (2020). Separación de señales usando análisis de componentes principales y muestreo compresivo con mediciones mínimas. CIT Informacion Tecnologica, 31(1), 287–300. https://doi.org/10.4067/s0718-07642020000100287
+
+-   Acaro, X., Molina, M., Corapi, P., Molina Villacis, M., Reamache Rivera, G. J., & Castillo García, J. V. (2021). Interfaz gráfica para el análisis de audio y sonidos urbanos (CasRem). Investigación, Tecnología e Innovación, 13(14), 29–42. https://doi.org/10.53591/iti.v13i14.1308
+
+-   Marengo Rodriguez, F. A., Roveri, E. A., Guerrero, J. M. R., Treffiló, M., & Miyara, F. (s/f). ANÁLISIS COMPARATIVO DE CODIFICADORES DE AUDIO SIN PÉRDIDAS. Edu.ar. Recuperado el 28 de febrero de 2025, de https://www.fceia.unr.edu.ar/acustica/codecdigital/archivos/comparativo-codificadores-sin-perdidas-UNTREF.pdf
+
