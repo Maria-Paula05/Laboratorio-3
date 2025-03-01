@@ -383,42 +383,84 @@ Por ultimo se compara la señal aislada con la señal original mediante métrica
 
 ```python
 
-folder_path = "C:\\Users\\paula\\Desktop\\COCTEL"
+import numpy as np
+import librosa
+import librosa.display
+import soundfile as sf
+import matplotlib.pyplot as plt
 
-# 🎤 Cargar audios de los micrófonos
-fs, mic1 = wav.read(os.path.join(folder_path, "AUDIO1.wav"))
-_, mic2 = wav.read(os.path.join(folder_path, "AUDIO2.wav"))
-_, mic3 = wav.read(os.path.join(folder_path, "AUDIO3.wav"))
+def delay_and_sum_beamforming(signals, sample_rate, mic_positions, target_position, speed_of_sound=343):
+    num_mics, num_samples = signals.shape
+    combined_signal = np.zeros(num_samples)
 
-signals = np.vstack([mic1, mic2, mic3])
+    # Calcular retrasos para cada micrófono basado en la distancia a la fuente
+    delays = []
+    for pos in mic_positions:
+        x, y = pos
+        distance = np.sqrt((x - target_position[0])**2 + (y - target_position[1])**2)
+        time_delay = distance / speed_of_sound
+        sample_delay = int(time_delay * sample_rate)
+        delays.append(sample_delay)
 
-# Posiciones actualizadas de los micrófonos según la imagen
-mic_positions = np.array([
-    [-3, 6],  # Mic 1 (izquierda)
-    [3, 6],   # Mic 2 (derecha)
-    [0, -1],  # Mic 3 (abajo en el centro)
-]).T  # Transpuesta para el formato correcto
+    # Aplicar los retrasos a cada señal
+    for i in range(num_mics):
+        delayed_signal = np.roll(signals[i], -delays[i])  # Desplazamiento de muestra
+        combined_signal += delayed_signal
 
-# Dirección de la persona central (asumimos que está en (0,0))
-angle = np.pi / 2  # 90°
+    # Normalizar la señal combinada
+    combined_signal /= num_mics
 
-# 🛠 Crear beamformer Delay-and-Sum
-R = mic_positions  # Matriz de posiciones
-beamformer = pra.beamforming.DelayAndSum(R, fs, nfft=256)  # Intentar con DelayAndSum
+    return combined_signal
 
-# Apuntar el beamformer a la dirección deseada
-beamformer.steer(azimuth=angle, colatitude=np.pi/2)  
+# Posiciones de los micrófonos según la imagen
+mic_positions = [(-3, 6), (3, 6), (0, 1)]  # Coordenadas (x, y)
 
-# Aplicar beamforming
-output_signal = beamformer.process(signals)
+# Posición de la fuente de sonido (Música)
+target_position = (0, 4)
 
-# Guardar el audio resultante
-output_path = os.path.join(folder_path, "voz_central_beamforming.wav")
-wav.write(output_path, fs, output_signal.astype(np.int16))
+audio_path = 'AUDIO3.wav'
+signal, sr = librosa.load(audio_path, mono=True)
+num_samples = len(signal)
 
-print(f"Audio procesado guardado en: {output_path}")
+# Simular señales en cada micrófono con retardos
+num_mics = len(mic_positions)
+signals = np.zeros((num_mics, num_samples))
+for i in range(num_mics):
+    distance = np.sqrt((mic_positions[i][0] - target_position[0])**2 + (mic_positions[i][1] - target_position[1])**2)
+    delay_samples = int((distance / 343) * sr)
+    signals[i] = np.roll(signal, delay_samples)
+
+# Aplicar Beamforming
+beamformed_signal = delay_and_sum_beamforming(signals, sr, mic_positions, target_position)
+
+# Guardar resultado
+sf.write("VOZ3BF.wav", beamformed_signal, sr)
+print("Se guardó el audio procesado con Beamforming en 'VOZ3BF.wav'.")
+
+# Graficar señales
+plt.figure(figsize=(12, 6))
+plt.subplot(2, 1, 1)
+plt.plot(signal, color="gray", alpha=0.6, label="Original")
+plt.xlabel("Muestras")
+plt.ylabel("Amplitud(normalizado)")
+plt.title("Señal Original")
+plt.legend()
+
+plt.subplot(2, 1, 2)
+plt.plot(beamformed_signal, color="blue", label="Beamforming")
+plt.xlabel("Muestras")
+plt.ylabel("Amplitud(normalizado)")
+plt.title("Señal después de Beamforming")
+plt.legend()
+
+plt.tight_layout()
+plt.show()
 
 ```
+![image](https://github.com/user-attachments/assets/40fdbdda-9ff0-4950-a1af-24f7bfd503b9)
+Se guardó el audio procesado con Beamforming en 'VOZ3BF.wav'.
+🎧 [AUDIO 3](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO3.wav)
+🎧 [VOZ3BF](VOZ3BF.wav))
 
 # SNR
 
