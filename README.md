@@ -1,11 +1,6 @@
-# Laboratorio-3
-# Librerías utilizadas a lo largo del laboratorio 
+# Laboratorio 3 - Problema del cóctel 
 
-```python
-import librosa
-import matplotlib.pyplot as plt
-import numpy as np
-```
+Este laboratorio aborda el problema del cóctel, que consiste en aislar una fuente de sonido en un entorno con múltiples emisores. A lo largo del repositorio, se implementan técnicas de procesamiento digital de señales, como el Análisis de Componentes Independientes (ICA) y Beamforming, para separar las señales capturadas por un arreglo de micrófonos y evaluar experimentalmente la efectividad de cada método.
 
 # 1. Configuración del sistema
 Como primer paso para configurar el sistema se ubicaron tres micrófonos:
@@ -437,8 +432,15 @@ Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte 
     Realizar simulaciones previas mediante software como MATLAB o Proteus para ajustar los parámetros del sistema antes de la implementación real.
     Efectuar mediciones en diferentes condiciones para evaluar la robustez del método y ajustar los parámetros necesarios.
 
-  # 6.Conclusiones
+# 6. Conclusiones
+-  La resolución del problema del cóctel demostró la viabilidad
+de aislar una voz específica en entornos con múltiples fuentes sonoras, aunque con resultados parciales debido principalmente a errores en la captura de los audios. Conseguimos identificar y separar la voz objetivo, pero la calidad del aislamiento se vio comprometida por factores técnicos durante la fase de adquisición de datos.
 
+-   La presencia de errores en la toma de los audios, como posibles desplazamientos de los micrófonos, variaciones en la ganancia y condiciones acústicas adversas del ambiente, afectaron significativamente la efectividad del proceso. Estas deficiencias en la captura se reflejaron en una relación señal/ruido inferior a la esperada y en la contaminación de la voz aislada con componentes de otras fuentes.
+
+-   El análisis espectral confirmó que, aunque identificable, la voz separada mediante Análisis de Componentes Independientes (ICA) aún contenía elementos residuales de otras señales. Esto subraya la importancia crítica de garantizar una captura limpia y precisa como fundamento para cualquier procesamiento posterior.
+
+-
 
   
   
