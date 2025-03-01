@@ -18,7 +18,7 @@ Estos micrófonos se ubicaron a 6 m de distancia entre ellos,como se muestra en 
 
 1. Se grabaron tres señales mediante la voz de tres personas; las frases que dijeron en la captura fueron las siguientes:
 
-Persona 1(Paula Vanessa):
+Persona 1(Paula Vanessa):"Por accidente le pegue a la ventana de la vecina y la rompí"
 
 🎧 [Escuchar el audio](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO1.wav)
 
