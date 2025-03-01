@@ -267,7 +267,7 @@ for i, y in enumerate(signals):
 plt.tight_layout()
 plt.show()
 ```
-![image](https://github.com/user-attachments/assets/4db6ddca-792b-413f-8cf3-adb39022b9dc)
+![image](https://raw.githubusercontent.com/Maria-Paula05/Laboratorio-3/refs/heads/main/ONDA.png)
 
 - Análisis frecuencial: La Transformada Rápida de Fourier (FFT) convierte la señal al dominio de la frecuencia, mostrando qué frecuencias están presentes y su intensidad en decibeles (dB).
 
