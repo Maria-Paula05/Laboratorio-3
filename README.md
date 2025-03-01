@@ -383,6 +383,13 @@ Por ultimo se compara la señal aislada con la señal original mediante métrica
 🎧 [AUDIO 3](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO3.wav)
 🎧 [VOZ3](VOZ3.wav)
 
+# Beamforming
+*"Beamforming es una técnica que se utiliza para mejorar la relación señal-ruido de las señales recibidas, eliminar fuentes de interferencia no deseadas y enfocar señales transmitidas a ubicaciones específicas." (Beamforming, s.f.)*
+
+```python
+
+```
+
 # SNR
 
 Es una medida que compara el nivel de una señal deseada con el nivel del ruido de fondo en un sistema de audio o comunicaciones. Se expresa generalmente en decibeles (dB)
@@ -437,12 +444,13 @@ Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte 
   
 # Referencias
 
--   Transformación rápida de Fourier FFT (n.d.).
+-   Transformación rápida de Fourier FFT (s.f.).
 https://www.nti-audio.com/es/servicio/conocimientos/transformacion-rapida-de-fourier-fft
 
 -   Rivera, E., Moreno, R., Pérez, H., & Nakano, M. (2020). Separación de señales usando análisis de componentes principales y muestreo compresivo con mediciones mínimas. CIT Informacion Tecnologica, 31(1), 287–300. https://doi.org/10.4067/s0718-07642020000100287
 
 -   Acaro, X., Molina, M., Corapi, P., Molina Villacis, M., Reamache Rivera, G. J., & Castillo García, J. V. (2021). Interfaz gráfica para el análisis de audio y sonidos urbanos (CasRem). Investigación, Tecnología e Innovación, 13(14), 29–42. https://doi.org/10.53591/iti.v13i14.1308
 
--   Marengo Rodriguez, F. A., Roveri, E. A., Guerrero, J. M. R., Treffiló, M., & Miyara, F. (s/f). ANÁLISIS COMPARATIVO DE CODIFICADORES DE AUDIO SIN PÉRDIDAS. Edu.ar. Recuperado el 28 de febrero de 2025, de https://www.fceia.unr.edu.ar/acustica/codecdigital/archivos/comparativo-codificadores-sin-perdidas-UNTREF.pdf
+-   Marengo Rodriguez, F. A., Roveri, E. A., Guerrero, J. M. R., Treffiló, M., & Miyara, F. (s.f). ANÁLISIS COMPARATIVO DE CODIFICADORES DE AUDIO SIN PÉRDIDAS. Edu.ar. Recuperado el 28 de febrero de 2025, de https://www.fceia.unr.edu.ar/acustica/codecdigital/archivos/comparativo-codificadores-sin-perdidas-UNTREF.pdf
 
+-   Beamforming. (s.f.). MATLAB & Simulink. https://la.mathworks.com/discovery/beamforming.html
