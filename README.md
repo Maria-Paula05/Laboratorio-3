@@ -309,10 +309,79 @@ El proceso para separar fuentes comienza con la carga de archivos de audio, aseg
 Para mejorar la calidad del audio extraído, se utiliza un filtro pasa banda (100 Hz - 4000 Hz), eliminando frecuencias no deseadas. Luego, la señal se normaliza y convierte al formato int16, optimizándola para su almacenamiento. Finalmente, el archivo se guarda en formato .wav.
 
 ```python
+import librosa
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import FastICA
+import soundfile as sf
+
+# Cargar el audio
+audio_path1 = 'AUDIO3.wav'
+y1, sr1 = librosa.load(audio_path1, mono=True)
+fs = sr1 
+duration = len(y1) / fs
+
+# Asegurar que la señal sea de dos canales para ICA
+y2 = np.roll(y1, 1000)
+audios_mixtos = np.column_stack([y1, y2])
+
+# Aplicar FastICA
+ica = FastICA(n_components=2)
+audios_separados = ica.fit_transform(audios_mixtos)
+
+# Seleccionar la primera fuente estimada
+senal_aislada = audios_separados[:, 0]
+
+# Ajustar amplitudes al mismo nivel
+senal_aislada /= np.max(np.abs(senal_aislada))  # Normalizar entre [-1,1]
+senal_aislada *= np.max(np.abs(y1))  # Escalar a la misma amplitud que AUDIO3
+
+# Guardar la señal aislada
+sf.write("VOZ3.wav", senal_aislada, fs)
+print("Se guardó la señal aislada con ICA en 'VOZ3.wav'.")
+
+# Cálculo de SNR basado en la señal original como referencia
+def calculate_snr(original, isolated):
+    original = original[:len(isolated)]  # Asegurar mismo tamaño
+    noise = original - isolated  # Calcular ruido
+    signal_power = np.mean(original ** 2)
+    noise_power = np.mean(noise ** 2)
+    snr = 10 * np.log10(signal_power / noise_power) if noise_power > 0 else float('inf')
+    return snr
+
+snr_aislada = calculate_snr(y1, senal_aislada)
+print(f"SNR de AUDIO3 aislado: {snr_aislada:.2f} dB")
+
+# Graficar AUDIO3 original y aislado
+plt.figure(figsize=(12, 6))
+plt.subplot(2, 1, 1)
+plt.plot(np.linspace(0, duration, len(y1)), y1, color="green")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Amplitud (Normalizada)")
+plt.title("AUDIO3 Original")
+
+plt.subplot(2, 1, 2)
+plt.plot(np.linspace(0, duration, len(senal_aislada)), senal_aislada, color="blue")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Amplitud (Normalizada)")
+plt.title("AUDIO3 Aislado")
+
+plt.tight_layout()
+plt.show()
 
 ```
 **Comparación señal aislada / la señal original**
+
 Por ultimo se compara la señal aislada con la señal original mediante métricas de calidad, para cuantificar el desempeño de la separación y evaluar la efectividad del proceso.
+
+
+*Se guardó la señal aislada con ICA en 'VOZ3.wav'.*
+
+*SNR de AUDIO3 aislado: 16.92 dB*
+![image](https://raw.githubusercontent.com/Maria-Paula05/Laboratorio-3/refs/heads/main/AISLADA.png)
+
+🎧 [AUDIO 3](https://github.com/Maria-Paula05/Laboratorio-3/blob/main/AUDIO3.wav)
+🎧 [VOZ3](VOZ3.wav)
 
 # SNR
 
