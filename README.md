@@ -429,6 +429,11 @@ Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte 
 
     Realizar simulaciones previas mediante software como MATLAB o Proteus para ajustar los parámetros del sistema antes de la implementación real.
     Efectuar mediciones en diferentes condiciones para evaluar la robustez del método y ajustar los parámetros necesarios.
+
+  # 6.Conclusiones
+
+
+  
   
 # Referencias
 
