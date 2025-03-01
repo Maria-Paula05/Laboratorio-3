@@ -433,16 +433,11 @@ Un SNR alto (mayor cantidad de dB) significa que la señal es mucho más fuerte 
     Efectuar mediciones en diferentes condiciones para evaluar la robustez del método y ajustar los parámetros necesarios.
 
 # 6. Conclusiones
--  La resolución del problema del cóctel demostró la viabilidad
-de aislar una voz específica en entornos con múltiples fuentes sonoras, aunque con resultados parciales debido principalmente a errores en la captura de los audios. Conseguimos identificar y separar la voz objetivo, pero la calidad del aislamiento se vio comprometida por factores técnicos durante la fase de adquisición de datos.
+- La resolución experimental del problema del cóctel demostró que es posible aislar parcialmente una voz específica entre múltiples fuentes sonoras. Para ello, implementamos dos técnicas: Análisis de Componentes Independientes (ICA) y Beamforming. Los resultados indicaron que ICA logró una separación más clara, aunque aún incompleta, de la voz objetivo.
 
--   La presencia de errores en la toma de los audios, como posibles desplazamientos de los micrófonos, variaciones en la ganancia y condiciones acústicas adversas del ambiente, afectaron significativamente la efectividad del proceso. Estas deficiencias en la captura se reflejaron en una relación señal/ruido inferior a la esperada y en la contaminación de la voz aislada con componentes de otras fuentes.
+- El principal obstáculo fue la calidad de la captura de audio. Factores como la disposición inadecuada de los celulares, variaciones en la ganancia y condiciones acústicas desfavorables afectaron los datos iniciales, limitando la efectividad del procesamiento posterior.
 
--   El análisis espectral confirmó que, aunque identificable, la voz separada mediante Análisis de Componentes Independientes (ICA) aún contenía elementos residuales de otras señales. Esto subraya la importancia crítica de garantizar una captura limpia y precisa como fundamento para cualquier procesamiento posterior.
-
--
-
-  
+- El mejor desempeño de ICA en comparación con Beamforming sugiere que la calidad de los datos de entrada fue un factor determinante en los resultados, más que la técnica de procesamiento utilizada.
   
 # Referencias
 
