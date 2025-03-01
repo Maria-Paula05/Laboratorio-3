@@ -203,6 +203,47 @@ SNR:26.89
 
 **Caracteristicas principales de cada fuente sonora:**
 
+En este caso, se tienen tres fuentes sonoras:
+
+1. Voces humanas
+   
+Cada una de las tres voces tendrá características distintas, dependiendo de la persona que habla:
+
+-Timbre: Cada voz tiene un tono único (grave, agudo, nasal, suave, áspera, etc.).
+
+-Intensidad: Algunas voces pueden sonar más fuertes o más suaves según la distancia al micrófono o la manera de hablar.
+
+-Velocidad y ritmo: Algunas personas pueden hablar rápido, pausado, con énfasis en ciertas palabras.
+
+-Entonación: Puede haber variaciones según la emoción (tono serio, alegre, enojado, triste, etc.).
+
+-Ubicación espacial: En un audio estéreo, las voces pueden ubicarse en distintos puntos (izquierda, derecha o centro).
+
+2. Música de fondo
+   
+La música también tiene varias características que afectan cómo se percibe en el audio:
+
+-Timbre: Dependerá de los instrumentos utilizados (piano, guitarra, sintetizador, etc.).
+
+-Volumen: Puede ser baja para no opacar las voces o alta si es el elemento principal en algunos momentos.
+
+-Ritmo y tempo: Puede ser rápida, lenta, con cambios de velocidad.
+
+-Estilo: Puede ser clásica, electrónica, rock, jazz, etc., lo que influye en la atmósfera del audio.
+
+-Presencia: Puede sonar de fondo de manera constante o variar su intensidad en diferentes momentos.
+
+3. Efectos de sonido 
+Los efectos de sonido pueden aportar realismo o dramatismo al audio:
+
+-Naturales: Sonidos de la universidad, viento, pasos, murmullos de fondo.
+
+-Artificiales: Transiciones, ruidos añadidos en edición, eco, reverberación.
+
+-Ubicación espacial: Al igual que las voces, pueden posicionarse en distintos puntos del estéreo (izquierda, derecha, fondo).
+
+-Propósito: Pueden ser utilizados para ambientar, enfatizar acciones o mejorar la experiencia sonora.
+
 Análisis y gráfica de un audio: El análisis y graficación de audio permiten examinar una señal en el dominio del tiempo y la frecuencia para comprender sus características.
 
 - Análisis temporal: La forma de onda muestra cómo cambia la amplitud del sonido, permitiendo identificar eventos como golpes o pausas.
